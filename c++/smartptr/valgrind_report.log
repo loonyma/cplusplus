@@ -1,0 +1,36 @@
+==4078== Memcheck, a memory error detector
+==4078== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==4078== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==4078== Command: ./smartptr
+==4078== Parent PID: 1776
+==4078== 
+==4078== Invalid read of size 4
+==4078==    at 0x400C27: RefCount::downcount() (in /home/loony/work/source/c++/smartptr/smartptr)
+==4078==    by 0x400D46: smartptr<example>::~smartptr() (in /home/loony/work/source/c++/smartptr/smartptr)
+==4078==    by 0x400A7C: main (in /home/loony/work/source/c++/smartptr/smartptr)
+==4078==  Address 0x5ab6c88 is 8 bytes inside a block of size 16 free'd
+==4078==    at 0x4C2F24B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4078==    by 0x400CC5: example::~example() (in /home/loony/work/source/c++/smartptr/smartptr)
+==4078==    by 0x400C22: RefCount::downcount() (in /home/loony/work/source/c++/smartptr/smartptr)
+==4078==    by 0x400D46: smartptr<example>::~smartptr() (in /home/loony/work/source/c++/smartptr/smartptr)
+==4078==    by 0x400A7C: main (in /home/loony/work/source/c++/smartptr/smartptr)
+==4078==  Block was alloc'd at
+==4078==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4078==    by 0x400A2E: main (in /home/loony/work/source/c++/smartptr/smartptr)
+==4078== 
+==4078== 
+==4078== HEAP SUMMARY:
+==4078==     in use at exit: 72,704 bytes in 1 blocks
+==4078==   total heap usage: 3 allocs, 2 frees, 73,744 bytes allocated
+==4078== 
+==4078== LEAK SUMMARY:
+==4078==    definitely lost: 0 bytes in 0 blocks
+==4078==    indirectly lost: 0 bytes in 0 blocks
+==4078==      possibly lost: 0 bytes in 0 blocks
+==4078==    still reachable: 72,704 bytes in 1 blocks
+==4078==         suppressed: 0 bytes in 0 blocks
+==4078== Reachable blocks (those to which a pointer was found) are not shown.
+==4078== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==4078== 
+==4078== For counts of detected and suppressed errors, rerun with: -v
+==4078== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
